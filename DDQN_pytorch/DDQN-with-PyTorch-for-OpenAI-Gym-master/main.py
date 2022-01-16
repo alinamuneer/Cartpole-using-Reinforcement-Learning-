@@ -260,9 +260,9 @@ def main(gamma=0.99, lr=1e-3, min_episodes=20, eps=1, eps_decay=0.995, eps_min=0
     print(plot_array_episodes,plot_array_rewards)
     plt.figure(2)
     plt.clf()
-    plt.title('DDQN)
+    plt.title('DDQN')
     plt.xlabel('Episode')
-    plt.ylabel('Duration)
+    plt.ylabel('Duration')
     # Take 100 episode averages and plot them to the total_reward
     plt.plot(plot_array_episodes,plot_array_rewards)
     plt.show()

@@ -193,7 +193,7 @@ class QNetAgent:
         fig.canvas.set_window_title("DQN Training Statistics")
         plt.clf()
         durations_t = torch.FloatTensor(self.episode_durations)
-        plt.subplot(1, 2, 1)
+        #plt.subplot(1, 2, 1)
         if epi < EXPLORE_EPI_END:
             plt.title('Agent Exploring Environment')
         elif EXPLORE_EPI_END <= e <= TEST_EPI_START:
@@ -220,18 +220,21 @@ class QNetAgent:
             y_array = np.insert(self.y_axis_array, 0, 0)
             #print(x_array, y_array)
             plt.plot(x_array, y_array)
+            plt.draw()
+            plt.pause(0.0001)
 
 
 
 
-        plt.subplot(1, 2, 2)
-        plt.title("Epsilon per Episode")
-        plt.xlabel('Episode')
-        plt.ylabel('Epsilon')
-        plt.plot(self.epsilon_history)
-        plt.show(block=False)
-        plt.draw()
-        plt.pause(0.0001)
+
+        #plt.subplot(1, 2, 2)
+        #plt.title("Epsilon per Episode")
+        #plt.xlabel('Episode')
+        #plt.ylabel('Epsilon')
+        #plt.plot(self.epsilon_history)
+        #plt.show(block=False)
+        #
+
 
 
 if __name__ == "__main__":
