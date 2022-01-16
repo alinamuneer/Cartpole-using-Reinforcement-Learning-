@@ -13,8 +13,10 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 import torchvision.transforms as T
+import os
 
 
+os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 env = gym.make('CartPole-v0').unwrapped
 
 # set up matplotlib
@@ -188,7 +190,8 @@ def plot_durations():
         means = durations_t.unfold(0, 100, 1).mean(1).view(-1)
         means = torch.cat((torch.zeros(99), means))
         print(means)
-        plt.plot(means.numpy())
+        if len(durations_t)%100==0:
+            plt.plot(means.numpy())
 
     plt.pause(0.001)  # pause a bit so that plots are updated
     if is_ipython:
